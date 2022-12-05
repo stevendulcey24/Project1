@@ -1,0 +1,184 @@
+html {
+  box-sizing: sqaure-box;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  font-family: 'Rubik', sans-serif;
+}
+
+.game {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hidden {
+  display: none !important;
+}
+
+.invisble {
+  visibility: hidden;
+}
+
+header {
+  text-align: center;
+  font-size: 22px;
+  color: goldenrod;
+}
+
+.heading {
+  font-size: 3em;
+}
+
+.sqaure-container {
+  display: grid;
+  grid-template-rows: 180px 180px;
+  grid-template-columns: 180px 180px;
+  grid-gap: 25px;
+  position: relative;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+.unclickable {
+  pointer-events: none;
+}
+
+.sqaure-maroon {
+  background-color: maroon;
+  box-shadow: 0 0 0 1px maroon, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 maroon, 0 8px 0 1px rgba(0, 0, 0, 0.4), 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+  transition: 0.15s;
+}
+
+.sqaure-maroon:hover,
+.sqaure-maroon:focus {
+  background-color: maroon;
+  box-shadow: 0 0 0 1px #FF00 30inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 10px 0 0 maroon, 0 10px 0 1px rgba(0, 0, 0, 0.4), 0 10px 8px 1px rgba(0, 0, 0, 0.6);
+}
+
+.sqaure-maroon:active,
+.sqaure-maroon.activated {
+  box-shadow: 0 0 0 1px maroon, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 0 0 1px rgba(0, 0, 0, 0.4);
+  background-color: maroon;
+  transform: translateY(10px);
+}
+
+.sqaure-grey {
+  background-color: grey;
+  box-shadow: 0 0 0 1px grey inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 grey, 0 8px 0 1px rgba(0, 0, 0, 0.4), 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+  transition: 0.15s;
+}
+
+.sqaure-grey:hover,
+.sqaure-grey:focus {
+  background-color: grey;
+  box-shadow: 0 0 0 1px grey inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 10px 0 0 grey, 0 10px 0 1px rgba(0, 0, 0, 0.4), 0 10px 8px 1px rgba(0, 0, 0, 0.6)
+}
+
+.sqaure-grey:active,
+.sqaure-grey.activated {
+  box-shadow: 0 0 0 1px grey inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 0 0 1px rgba(0, 0, 0, 0.4);
+  background-color: grey;
+  transform: translateY(10px);
+}
+
+.sqaure-purple {
+  background-color: purple;
+  box-shadow: 0 0 0 1px purple inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 purple, 0 8px 0 1px rgba(0, 0, 0, 0.4), 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+  transition: 0.15s;
+}
+
+.sqaure-purple:hover,
+.sqaure-purple:focus {
+  background-color: purple;
+  box-shadow: 0 0 0 1px purple inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 purple, 0 8px 0 1px rgba(0, 0, 0, 0.4), 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+}
+
+.sqaure-purple:active,
+.sqaure-purple.activated {
+  box-shadow: 0 0 0 1px purple, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 0 0 1px rgba(0, 0, 0, 0.4);
+  background-color: purple;
+  transform: translateY(10px);
+}
+
+.sqaure-olive {
+  background-color: olive;
+  box-shadow: 0 0 0 1px olive inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 olive, 0 8px 0 1px rgba(0, 0, 0, 0.4), 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+  transition: 0.15s;
+}
+
+.sqaure-olive:hover,
+.sqaure-olive:focus {
+  background-color: olive;
+  box-shadow: 0 0 0 1px olive inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 10px 0 0 olive, 0 10px 0 1px rgba(0, 0, 0, 0.4), 0 10px 8px 1px rgba(0, 0, 0, 0.6);
+}
+
+.sqaure-olive:active,
+.sqaure-olive.activated {
+  box-shadow: 0 0 0 1px olive, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 0 0 1px rgba(0, 0, 0, 0.4);
+  background-color: olive;
+  transform: translateY(10px);
+}
+
+.info-section {
+  text-align: center;
+}
+
+.start-button {
+  display: inline-block;
+  height: 40px;
+  padding: 0 32px;
+  color: rgb(4, 181, 80);
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 40px;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: burlywood;
+  border-radius: 4px;
+  border: 2px solid #bbb;
+  cursor: pointer;
+}
+
+.start-button:hover {
+  color: #333;
+  border-color: #888;
+  outline: 0;
+}
+
+.info {
+  font-size: 22px;
+}
+
+@media screen and (max-width: 550px) {
+  .game {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .heading {
+    font-size: 2em;
+  }
+
+  .sqaure-container {
+    width: 100%;
+    height: 100%;
+    grid-template-rows: 150px 150px;
+    grid-template-columns: 150px 150px;
+  }
+}
