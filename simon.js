@@ -22,6 +22,7 @@ function resetGame(text) {
   heading.textContent = 'Simon Game';
   info.classList.add('hidden');
   sqaureContainer.classList.add('unclickable');
+  //compares computers order to players order dictates wether player moves on or not 
 }
 
 function personGoes(level) {
@@ -70,6 +71,7 @@ function nextRound() {
   sqaureContainer.classList.add('unclickable');
   info.textContent = 'Wait for simon';
   heading.textContent = `Level ${level} of 20`;
+  //shows current level out of 20
 
 
   const nextOrder = [...order];
@@ -81,24 +83,30 @@ function nextRound() {
   setTimeout(() => {
     personGoes(level);
   }, level * 600 + 1000);
+  //this activates players turn 1 second after the computers order is shown
+  // the total time it takes for the order to be displayed depends on the level player is on 
 }
 
 function handleClick(sqaure) {
   const index = personOrder.push(sqaure) - 1;
   const sound = document.querySelector(`[data-sound='${sqaure}']`);
   sound.play();
+  //detects players clicks
 
   const remainingTaps = order.length - personOrder.length;
+  // how many taps remain until the turn is over
 
   if (personOrder[index] !== order[index]) {
     resetGame('Dang big homie you pressed the Wrong one');
     return;
+    // if player clicks wrong sqaure this message appears
   }
 
   if (personOrder.length === order.length) {
     if (personOrder.length === 20) {
       resetGame('Congrats big homie you moving up');
       return
+      // if player reaches max level of 20 this message appears
     }
 
     personOrder = [];
