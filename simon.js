@@ -1,8 +1,10 @@
 let order = [];
 let personOrder = [];
-let level = 0;
 //arrays were created to keep track of the random order and
 //the players order 
+let level = 0;
+//  variable created to keep track of rounds that will be played
+ 
 
 const startButton = document.querySelector('.js-start');
 // start button was created 
@@ -24,12 +26,16 @@ function resetGame(text) {
 
 function personGoes(level) {
   sqaureContainer.classList.remove('unclickable');
+  // while simon is going player is unable to click a box
   info.textContent = `Your up: ${level} Tap${level > 1 ? 's' : ''}`;
+  // function indicates its players turn to go after "simons" order
 }
 
 function activateSquare(color) {
   const sqaure = document.querySelector(`[data-sqaure='${color}']`);
   const sound = document.querySelector(`[data-sound='${color}']`);
+  // used to select the color and audio that matches the sqaures in my html file
+
 
   sqaure.classList.add('activated');
   sound.play();
@@ -37,6 +43,7 @@ function activateSquare(color) {
   setTimeout(() => {
     sqaure.classList.remove('activated');
   }, 300);
+  // allows linked audio file to be played after 300 milliseconds
 }
 
 function playRound(nextOrder) {
@@ -44,18 +51,21 @@ function playRound(nextOrder) {
     setTimeout(() => {
       activateSquare(color);
     }, (index + 1) * 600);
+    // creates a delay between button press 
   });
 }
 
 function nextStep() {
   const sqaure = ['maroon', 'grey', 'purple', 'olive'];
   const random = sqaure[Math.floor(Math.random() * sqaure.length)];
+  //adds a random button press to the order 
 
   return random;
 }
 
 function nextRound() {
   level += 1;
+  // function was made in order to start the next order of clicks
 
   sqaureContainer.classList.add('unclickable');
   info.textContent = 'Wait for simon';
@@ -63,6 +73,7 @@ function nextRound() {
 
 
   const nextOrder = [...order];
+  //this allows all elements in the 'order' array to be copied into "nextOrder"
   nextOrder.push(nextStep());
   playRound(nextOrder);
 
